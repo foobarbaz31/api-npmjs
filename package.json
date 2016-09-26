@@ -4,11 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=dev node server.js",
     "test": "mocha --recursive test/"
   },
   "author": "Shweta Sabne <shwetasabne@gmail.com> (http://www.shwetasabne.com)",
   "license": "ISC",
   "dependencies": {
+    "boom": "^4.0.0",
+    "bunyan": "^1.8.1",
+    "bunyan-middleware": "^0.4.0",
+    "config": "^1.21.0",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "moment": "^2.15.1",
+    "npm-registry": "^0.1.13",
     "swagger-tools": "^0.10.1"
   },
   "repository": {
@@ -23,8 +32,8 @@
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.2.2",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2"
   }
