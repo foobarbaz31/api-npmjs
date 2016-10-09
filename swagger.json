@@ -1,0 +1,172 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "npm stats",
+    "description": "API to provide endpoints for various npm stats for packages",
+    "version": "1.0"
+  },
+  "basePath": "/v1",
+  "paths": {
+    "/range_downloads": {
+      "get": {
+        "tags": [
+          "downloads"
+        ],
+        "x-swagger-router-controller": "downloads",
+        "operationId": "getRangeDownloads",
+        "description": "Returns an array with the downloads per day for requested package in requested range",
+        "parameters": [
+          {
+            "name": "package",
+            "in": "query",
+            "description": "npm package to getdownloads for",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "start date for the range",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "end date for the range. Should be no more than 30 days from start.",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request.",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Downloads"
+                },
+                {
+                  "properties": {
+                    "downloads": {
+                      "type": "array"
+                    }
+                  }
+                },
+                {
+                  "required": ["downloads"]
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Something wrong happened.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/point_downloads": {
+      "get": {
+        "tags": [
+          "downloads"
+        ],
+        "x-swagger-router-controller": "downloads",
+        "operationId": "getPointDownloads",
+        "description": "Returns the total downloads for requested package in requested range",
+        "parameters": [
+          {
+            "name": "package",
+            "in": "query",
+            "description": "npm package to getdownloads for",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "start date for the range",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "end date for the range. Should be no more than 30 days from start.",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request.",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Downloads"
+                },
+                {
+                  "properties": {
+                    "downloads": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                {
+                  "required": ["downloads"]
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Something wrong happened.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "properties": {
+        "statusCode": {
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["statusCode", "message"]
+    },
+    "Downloads": {
+      "properties": {
+        "package": {
+          "type": "string",
+          "example": "express"
+        },
+        "start": {
+          "type": "string",
+          "format": "date",
+          "example": "2016-01-01"
+        },
+        "end": {
+          "type": "string",
+          "format": "date",
+          "example": "2016-08-01"
+        }
+      },
+      "required": ["package", "start", "end"]
+    }
+  }
+}

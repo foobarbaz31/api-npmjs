@@ -1,0 +1,10 @@
+{
+  "appName": "apinpm-stats",
+  "log": {
+    "streams": [
+      {
+        "level": "info"
+      }
+    ]
+  }
+}
