@@ -13,7 +13,7 @@ const options = {
 };
 
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
-const swaggerDoc = require('./swagger.json');
+const swaggerDoc = require('./swagger/swagger');
 
 const errorHandler = require('./middlewares/errorHandler');
 
