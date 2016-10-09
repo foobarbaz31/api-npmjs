@@ -1,5 +1,6 @@
 'use strict';
 
+/* eslint-disable no-console */
 const app = require('express')();
 const swaggerTools = require('swagger-tools');
 
@@ -16,6 +17,8 @@ const swaggerDoc = require('./swagger.json');
 
 const errorHandler = require('./middlewares/errorHandler');
 
+const log = require('./middlewares/log');
+
 // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, (middleware) => {
   // Interpret Swagger resources and attach metadata to request -
@@ -31,7 +34,12 @@ swaggerTools.initializeMiddleware(swaggerDoc, (middleware) => {
   // Serve the Swagger documents and Swagger UI
   app.use(middleware.swaggerUi());
 
+  // Apply errorHandler
   app.use(errorHandler);
+
+  // Apply logging middleware
+  app.use(log);
+
   // Start the server
   app.listen(serverPort, () => {
     console.log(`Started application on localhost:${serverPort}`);

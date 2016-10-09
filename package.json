@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=dev node server.js",
-    "test": "mocha --recursive test/"
+    "start": "node server.js",
+    "lint": "eslint *.js ./controllers ./helper ./lib ./middlewares ./test",
+    "test": "mocha --recursive test/",
+    "test:unit": "mocha --recursive test/unit",
+    "cover": "npm run lint && istanbul cover node_modules/.bin/_mocha -- -R spec test/**/*"
   },
   "author": "Shweta Sabne <shwetasabne@gmail.com> (http://www.shwetasabne.com)",
   "license": "ISC",
@@ -35,6 +38,9 @@
     "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "istanbul": "^0.4.5",
-    "mocha": "^3.0.2"
+    "mocha": "^3.1.0",
+    "proxyquire": "^1.7.10",
+    "rewire": "^2.5.2",
+    "sinon": "^1.17.6"
   }
 }

@@ -2,7 +2,7 @@
 
 const bunyan = require('bunyan');
 const bunyanMiddleware = require('bunyan-middleware');
-const config = require('config');
+
 /**
  * bunyanMiddleware
  * @params None
@@ -10,11 +10,12 @@ const config = require('config');
  */
 module.exports = function logMiddleware() {
   const logger = bunyan.createLogger({
-    name: config.appName,
+    name: 'apinpmstats',
+    stream: process.stdout
   });
 
-  return bunyanMiddleware(({
+  return bunyanMiddleware({
     logger
-  }));
+  });
 };
 

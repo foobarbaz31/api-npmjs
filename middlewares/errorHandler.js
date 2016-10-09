@@ -1,10 +1,10 @@
 'use strict';
 
+/* eslint no-unused-vars:0 */
 const boom = require('boom');
 
 module.exports = function errorHandler(err, req, res, next) {
   let error;
-  console.log(res.statusCode);
   if (res.statusCode === 400) {
     error = boom.badRequest(err);
   } else if (res.statusCode === 404) {
