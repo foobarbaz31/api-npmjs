@@ -12,8 +12,8 @@ module.exports = {
         "tags": [
           "packages"
         ],
-        "x-swagger-router-controller": "downloads",
-        "operationId": "getRangeDownloads",
+        "x-swagger-router-controller": "packages",
+        "operationId": "getPackageInfo",
         "description": "Returns an array with the downloads per day for requested package in requested range",
         "parameters": [
           { "$ref": "#/parameters/package" }
