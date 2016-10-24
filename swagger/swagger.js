@@ -2,7 +2,7 @@ module.exports = {
   "swagger": "2.0",
   "info": {
     "title": "npm stats",
-    "description": "API to provide endpoints for various npm stats for packages",
+    "description": "API to provide endpoints for various npm stats for packages. <a href='https://github.com/shwetasabne/api-npmjs'>Report Issues here!</a>",
     "version": "1.0"
   },
   "basePath": "/v1",
