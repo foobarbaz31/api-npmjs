@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "TZ='utc' node server.js",
     "lint": "eslint *.js ./controllers ./helper ./lib ./middlewares ./test",
-    "test": "mocha --recursive test/",
+    "test": "TZ='utc' mocha --recursive test/",
     "test:unit": "mocha --recursive test/unit",
     "cover": "npm run lint && istanbul cover node_modules/.bin/_mocha -- -R spec test/**/*"
   },
@@ -32,6 +32,7 @@
     "url": "https://github.com/shwetasabne/api-npmjs/issues"
   },
   "devDependencies": {
+    "async": "^2.1.4",
     "chai": "^3.5.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
@@ -42,6 +43,8 @@
     "istanbul": "^0.4.5",
     "lodash": "^4.16.4",
     "mocha": "^3.1.0",
+    "moment-range": "^2.2.0",
+    "moment-timezone": "^0.5.7",
     "proxyquire": "^1.7.10",
     "rewire": "^2.5.2",
     "sinon": "^1.17.6"

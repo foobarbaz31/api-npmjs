@@ -13,7 +13,7 @@ module.exports = function logMiddleware() {
     immediate: false,
     streams: [{
       level: 'trace',
-      path: '/var/log/stat.log',
+      path: 'stat.log',
       period: '1d',
       type: 'rotating-file'
     }]
