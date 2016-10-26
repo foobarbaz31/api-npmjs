@@ -3,7 +3,9 @@
 /* eslint-disable no-console */
 const config = require('config');
 
-const app = require('express')();
+const express = require('express');
+
+const app = express();
 
 const swaggerTools = require('swagger-tools');
 
@@ -23,6 +25,12 @@ const log = require('./middlewares/log')();
 
 app.use(log);
 
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(`${__dirname}/views/index.html`);
+});
+
 // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, (middleware) => {
   // Interpret Swagger resources and attach metadata to request -
@@ -41,9 +49,6 @@ swaggerTools.initializeMiddleware(swaggerDoc, (middleware) => {
   // Apply errorHandler
   app.use(errorHandler);
 
-  app.get('/', (req, res) => {
-    res.redirect('/docs');
-  });
   // Start the server
   app.listen(serverPort, () => {
     console.log(`Started application on localhost:${serverPort}`);

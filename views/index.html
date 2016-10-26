@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="api to return stats for npm">
+    <meta name="keywords" content="api npm stats downloads package swagger rest restful easy interface">
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="shwetasabne">
+
+    <title>api-npm</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="center.css" type="text/css">
+  </head>
+
+  <body>
+    <div class="container container-table">
+        <div class="row vertical-center-row">
+            <div class="text-center col-md-4 col-md-offset-4">
+              <div class="row">
+                <h1 class="class-to-typed">api-npm</h1>
+              </div>
+              <div class="row">
+                <h2>Simple interface to get focussed information about npm packages.</h2>
+              </div>
+              <div class="row">
+              </div>
+              <div class="row">
+                <a href="/docs" class="btn btn-primary btn-lg">
+                  <span class="glyphicon glyphicon-search"></span> Explore APIs
+                </a>
+                <a href="https://github.com/shwetasabne/api-npmjs" class="btn btn-primary btn-lg" style="margin-top:10px;">
+                  <span class="glyphicon glyphicon-heart"></span> Report Feedback
+                </a>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    <script src="typed.js"></script>
+    <script>
+      $(function(){
+          var str = $( ".class-to-typed" ).text();
+          $( ".class-to-typed" ).empty();
+          $(".class-to-typed").typed({
+            strings: [str],
+            typeSpeed: 100,
+            showCursor: false,
+            startDelay: 200
+          });
+      });
+    </script>
+  </body>
+</html>

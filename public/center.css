@@ -1,0 +1,14 @@
+@import url('bootstrap.min.css');
+ html, body, .container-table {
+    height: 100%;
+}
+.class-to-typed {
+  display: inline-block
+}
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
