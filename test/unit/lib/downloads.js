@@ -92,6 +92,45 @@ describe('#downloads', () => {
       });
     });
 
+    it('should return data as 0 if registry returns error indicating no stats found', (done) => {
+      const opts = {
+        start: '2016-09-01',
+        end: '2016-12-31',
+        package: 'profanity-cleanser'
+      };
+
+      /** This gets returned 4 times the stub is called */
+      const data = [{
+        error: 'no stats for this package for this period (0002)',
+        package: 'profanity-cleanser',
+        downloads: 0
+      }];
+
+      const stubFunction = function stubFunction(range, name, func) {
+        return func(null, data);
+      };
+
+      sandbox.stub(registry, 'getRegistry', () => {
+        return {
+          downloads: {
+            totals: stubFunction
+          }
+        };
+      });
+
+      download.fetchTotalDownloads(opts, (err, item) => {
+        expect(err).to.be.null;
+        const expectedData = [{
+          downloads: 0,
+          start: '2016-09-01',
+          end: '2016-12-31',
+          package: 'profanity-cleanser'
+        }];
+        expect(item).to.deep.equal(expectedData);
+        done();
+      });
+    });
+
     it('#should return error message if registry returns an error', (done) => {
       const opts = {
         start: '2016-02-01',

@@ -1,7 +1,6 @@
 'use strict';
 
 const downloads = require('../lib/downloads');
-const helpers = require('../helpers/dateTimeHelpers');
 
 function getPointDownloads(req, res, next) {
   const opts = {
