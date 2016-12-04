@@ -4,5 +4,5 @@ module.exports = {
   "description": "end date for the range",
   "required": true,
   "type": "string",
-  "format": "date"
+  "format": "date-time"
 };

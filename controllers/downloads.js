@@ -16,12 +16,6 @@ function getPointDownloads(req, res, next) {
     return;
   }
 
-  if (helpers.dateDifference(opts.start, opts.end) > 30) {
-    res.statusCode = 400;
-    next(new Error('Date range can be upto a max of 30 days'));
-    return;
-  }
-
   downloads.fetchTotalDownloads(opts, (err, data) => {
     if (err) {
       res.statusCode = 404;
