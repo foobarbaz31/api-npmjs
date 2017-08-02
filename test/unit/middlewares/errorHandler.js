@@ -20,11 +20,11 @@ describe('#errorHandler', () => {
     const err = new Error('bad error');
     errorHandler(err, req, res, undefined);
     expect(resJsonSpy.callCount).to.be.equal(1);
-    expect(resJsonSpy.calledWith({
+    expect(resJsonSpy.getCall(0).args[0]).to.deep.equal({
       statusCode: 400,
       error: 'Bad Request',
       message: 'Error: bad error'
-    })).to.be.equal(true);
+    });
   });
 
   it('should boomify 404 error', () => {
@@ -36,11 +36,11 @@ describe('#errorHandler', () => {
     const err = new Error('bad error');
     errorHandler(err, req, res, undefined);
     expect(resJsonSpy.callCount).to.be.equal(1);
-    expect(resJsonSpy.calledWith({
+    expect(resJsonSpy.getCall(0).args[0]).to.deep.equal({
       statusCode: 404,
       error: 'Not Found',
       message: 'Error: bad error'
-    })).to.be.equal(true);
+    });
   });
 
   it('should boomify 500 error', () => {
@@ -52,10 +52,10 @@ describe('#errorHandler', () => {
     const err = new Error('bad error');
     errorHandler(err, req, res, undefined);
     expect(resJsonSpy.callCount).to.be.equal(1);
-    expect(resJsonSpy.calledWith({
+    expect(resJsonSpy.getCall(0).args[0]).to.deep.equal({
       statusCode: 500,
       error: 'Internal Server Error',
       message: 'An internal server error occurred'
-    })).to.be.equal(true);
+    });
   });
 });
