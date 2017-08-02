@@ -23,7 +23,7 @@ describe('#errorHandler', () => {
     expect(resJsonSpy.getCall(0).args[0]).to.deep.equal({
       statusCode: 400,
       error: 'Bad Request',
-      message: 'Error: bad error'
+      message: 'bad error'
     });
   });
 
@@ -39,7 +39,7 @@ describe('#errorHandler', () => {
     expect(resJsonSpy.getCall(0).args[0]).to.deep.equal({
       statusCode: 404,
       error: 'Not Found',
-      message: 'Error: bad error'
+      message: 'bad error'
     });
   });
 
